@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Bienvenido</string>
+    <string name="app_Registrar">Registrar Nueva Nota</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Caceres Sanchez Luis</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Guardar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_curso_detalle">activity_curso_detalle</string>
+    <string name="title_activity__curso__detalle">Activity_Curso_Detalle</string>
+
+
+    <!-- String Usar -->
+    <string name="nav_mis_notas">Mis Notas</string>
+    <string name="titulo">Titulo</string>
+    <string name="btnAsignar">Asignar</string>
+
+
+    <string name="btnGuardar">Guardar</string>
+
+
+</resources>
