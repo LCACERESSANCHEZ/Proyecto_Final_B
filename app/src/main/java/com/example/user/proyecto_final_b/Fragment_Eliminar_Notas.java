@@ -26,8 +26,9 @@ import com.example.user.proyecto_final_b.data.Nota;
 public class Fragment_Eliminar_Notas extends Fragment {
     private static final int MENU_ITEM_ELIMINAR = 10;
     String pTitulo;
+    String pId;
     TextView etTituloEliminar;
-    TextView etIdPrueba;
+
     private Dao_Nota dao_nota;
 
     public Fragment_Eliminar_Notas() {
@@ -47,6 +48,7 @@ public class Fragment_Eliminar_Notas extends Fragment {
         super.onCreate(savedInstanceState);
         if(getArguments()!= null){
             pTitulo = getArguments().getString("pTitulo");
+            pId = getArguments().getString("pId");
         }
     }
 
@@ -57,10 +59,11 @@ public class Fragment_Eliminar_Notas extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment__eliminar__notas, container, false);
         setHasOptionsMenu(true);
         etTituloEliminar = (TextView)view.findViewById(R.id.etTituloEliminar);
-        etIdPrueba = (TextView)view.findViewById(R.id.etIdPrueba);
+
         etTituloEliminar.setText(pTitulo);
 
-        Toast.makeText(getActivity(),"Titulo Buscado" + pTitulo ,Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(getActivity(),"Registro Encontrado" ,Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -76,7 +79,7 @@ public class Fragment_Eliminar_Notas extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_ITEM_ELIMINAR:
-                int intIdPrueba = Integer.parseInt(etIdPrueba.getText().toString());
+                int intIdPrueba = Integer.parseInt(pId);
                 Nota nota = new Nota();
                 nota.setIdNota(intIdPrueba);
                 dao_nota.deleteNota(nota);

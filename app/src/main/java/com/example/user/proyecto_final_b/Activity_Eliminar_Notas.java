@@ -13,14 +13,16 @@ public class Activity_Eliminar_Notas extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String titulo = getIntent().getStringExtra("pTitutlo");
-        String ftitulo = titulo;
-        Fragment_Registrar_Notas fragment_registrar_notas = new Fragment_Registrar_Notas();
-        Bundle bundle = new Bundle();
-        bundle.putString("pTitulo", ftitulo);
-        fragment_registrar_notas.setArguments(bundle);
+        String id = getIntent().getStringExtra("pId");
+        String titulo = getIntent().getStringExtra("pTitulo");
 
-        Fragment fragment = new Fragment_Eliminar_Notas();
+
+        Fragment_Eliminar_Notas fragment = new Fragment_Eliminar_Notas();
+        Bundle bundle = new Bundle();
+        bundle.putString("pId", id);
+        bundle.putString("pTitulo", titulo);
+        fragment.setArguments(bundle);
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(android.R.id.content,fragment).commit();
 

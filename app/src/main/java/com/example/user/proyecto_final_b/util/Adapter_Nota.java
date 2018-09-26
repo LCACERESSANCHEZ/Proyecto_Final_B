@@ -76,11 +76,15 @@ public class Adapter_Nota extends RecyclerView.Adapter<Adapter_Nota.ViewHolder> 
             switch (view.getId()){
                 case R.id.btnItemEliminar:
                     Intent intentEliminar = new Intent(context, Activity_Eliminar_Notas.class);
-                    intentEliminar.putExtra("pTitutlo",tvItemTitulo.getText());
+                    intentEliminar.putExtra("pId",tvItemId.getText());
+                    intentEliminar.putExtra("pTitulo",tvItemTitulo.getText());
                     context.startActivity(intentEliminar);
                     break;
                 case R.id.btnItemEditar:
                     Intent intentEditar = new Intent(context, Activity_Editar_Notas.class);
+                    intentEditar.putExtra("pId",tvItemId.getText());
+                    intentEditar.putExtra("pTitulo",tvItemTitulo.getText());
+                    intentEditar.putExtra("pActivo",tvItemTitulo.getText());
                     context.startActivity(intentEditar);
                     break;
             }

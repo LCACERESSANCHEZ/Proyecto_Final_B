@@ -26,6 +26,7 @@ public class Fragment_Editar_Notas extends Fragment {
     private static final int MENU_ITEM_ELIMINAR = 10;
     private TextView tvItemEditarId;
     private TextView tvItemEditarTitulo;
+    private String pTitulo,pId,pActivo;
     private Dao_Nota dao_nota;
 
 
@@ -40,6 +41,15 @@ public class Fragment_Editar_Notas extends Fragment {
 
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments()!= null){
+            pTitulo = getArguments().getString("pTitulo");
+            pId = getArguments().getString("pId");
+            pActivo = getArguments().getString("pActivo");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +58,10 @@ public class Fragment_Editar_Notas extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment__editar__notas, container, false);
         tvItemEditarId = (TextView)view.findViewById(R.id.tvItemEditarId);
         tvItemEditarTitulo = (TextView)view.findViewById(R.id.tvItemEditarTitulo);
+        tvItemEditarTitulo.setText(pTitulo);
         setHasOptionsMenu(true);
+
+        Toast.makeText(getActivity(),"Registro Encontrado" ,Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -66,9 +79,9 @@ public class Fragment_Editar_Notas extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_ITEM_ELIMINAR:
-                int v_tvItemEditarId = Integer.parseInt(tvItemEditarId.getText().toString());
+                int v_tvItemEditarId = Integer.parseInt(pId.toString());
                 String v_tvItemEditarTitulo = tvItemEditarTitulo.getText().toString();
-                int v_activo = 1;
+                int v_activo = Integer.parseInt(pActivo.toString());
 
                 Nota nota = new Nota();
                 nota.setIdNota(v_tvItemEditarId);

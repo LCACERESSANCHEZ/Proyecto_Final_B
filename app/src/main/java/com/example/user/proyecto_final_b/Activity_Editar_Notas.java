@@ -13,7 +13,18 @@ public class Activity_Editar_Notas extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Fragment fragment = new Fragment_Editar_Notas();
+        String id = getIntent().getStringExtra("pId");
+        String titulo = getIntent().getStringExtra("pTitulo");
+        String activo = getIntent().getStringExtra("pActivo");
+
+
+        Fragment_Editar_Notas fragment = new Fragment_Editar_Notas();
+        Bundle bundle = new Bundle();
+        bundle.putString("pId", id);
+        bundle.putString("pTitulo", titulo);
+        bundle.putString("pActivo", activo);
+        fragment.setArguments(bundle);
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(android.R.id.content,fragment).commit();
 

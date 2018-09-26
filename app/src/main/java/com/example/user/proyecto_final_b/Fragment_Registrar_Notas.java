@@ -89,7 +89,7 @@ public class Fragment_Registrar_Notas extends Fragment {
 
             etTitulo.setText("");
 
-            Toast.makeText(getActivity(),"Nota Guardada" ,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Nota Guardada"  ,Toast.LENGTH_SHORT).show();
             return true;
         }
 
